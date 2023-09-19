@@ -36,14 +36,14 @@ export default function QueryProcessor(query: string): string {
   }
   
 
-  // const largestMatch = query.match(/Which of the following numbers are primes: (\d+), (\d+), (\d+), (\d+), (\d+)?/)
-  // if (largestMatch) {
-  //   const x: number = parseInt(largestMatch[1]);
-  //   const y: number = parseInt(largestMatch[2]);
-  //   const z: number = parseInt(largestMatch[3]);
-  //   const maximum = Math.max(x, y, z)
-  //   return (maximum).toString();
-  // }
+  const largestMatch = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)?/)
+  if (largestMatch) {
+    const x: number = parseInt(largestMatch[1]);
+    const y: number = parseInt(largestMatch[2]);
+    const z: number = parseInt(largestMatch[3]);
+    const maximum = Math.max(x, y, z)
+    return (maximum).toString();
+  }
 
   // const primeMatch = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)?/)
   // if (largestMatch) {
