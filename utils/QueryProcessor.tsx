@@ -22,15 +22,44 @@ export default function QueryProcessor(query: string): string {
     const y: number = parseInt(addMatch[2]);
     return (x+y).toString();
   }
-
-  const largestMatch = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)?/)
-  if (largestMatch) {
-    const x: number = parseInt(largestMatch[1]);
-    const y: number = parseInt(largestMatch[2]);
-    const z: number = parseInt(largestMatch[3]);
-    const maximum = Math.max(x, y, z)
-    return (maximum).toString();
+  const subMatch = query.match(/What is (\d+) minus (\d+)/);
+  if (subMatch) {
+    const x: number = parseInt(subMatch[1]);
+    const y: number = parseInt(subMatch[2]);
+    return (x-y).toString();
   }
+  const timesMatch = query.match(/What is (\d+) multiplied by (\d+)/);
+  if (timesMatch) {
+    const x: number = parseInt(timesMatch[1]);
+    const y: number = parseInt(timesMatch[2]);
+    return (x*y).toString();
+  }
+  
+
+  // const largestMatch = query.match(/Which of the following numbers are primes: (\d+), (\d+), (\d+), (\d+), (\d+)?/)
+  // if (largestMatch) {
+  //   const x: number = parseInt(largestMatch[1]);
+  //   const y: number = parseInt(largestMatch[2]);
+  //   const z: number = parseInt(largestMatch[3]);
+  //   const maximum = Math.max(x, y, z)
+  //   return (maximum).toString();
+  // }
+
+  // const primeMatch = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)?/)
+  // if (largestMatch) {
+  //   const x: number = parseInt(largestMatch[1]);
+  //   const y: number = parseInt(largestMatch[2]);
+  //   const z: number = parseInt(largestMatch[3]);
+  //   const a: number = parseInt(largestMatch[4]);
+  //   const b: number = parseInt(largestMatch[5]);
+  //   const maximum = Math.max(x, y, z)
+  //   return (maximum).toString();
+  // }
+
+  // const squareCubeMatch = query.match(/Which of the following numbers is both a square and a cube: (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)?/)
+  // if (squareCubeMatch) {
+  //   for match in squareCubeMatch
+  // }
 
   return "";
 }
